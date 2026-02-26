@@ -8,307 +8,276 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --accent: #c9a227;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: #0f172a;
-    color: #f8fafc;
-    line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
 
-section {
-    padding: 80px 10%;
+/* Subtle grid background */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
 }
 
+/* NAVBAR */
+nav {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(248,250,252,0.8);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 8%;
+  z-index: 100;
+}
+
+nav h1 {
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  margin-left: 25px;
+  font-size: 0.9rem;
+  transition: 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* HERO */
 .hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  padding: 120px 8%;
+  position: relative;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
+.hero::after {
+  content: "DETECT";
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  font-size: 160px;
+  font-weight: 700;
+  color: rgba(0,0,0,0.04);
+  z-index: -1;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero span {
+  color: var(--accent);
 }
 
 .hero p {
-    font-size: 1.2rem;
-    color: #cbd5e1;
-    max-width: 700px;
+  max-width: 700px;
+  color: var(--muted);
+  font-size: 1.1rem;
 }
 
-.highlight {
-    color: #38bdf8;
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: 60px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.stat-box {
+  padding: 40px;
+  text-align: center;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+}
+
+.stat-box:last-child {
+  border-right: none;
+}
+
+.stat-box h3 {
+  font-size: 2.5rem;
+  color: var(--accent);
+}
+
+.stat-box p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* SECTION */
+section {
+  padding: 100px 8%;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 50px;
+}
+
+.section-title span {
+  color: var(--accent);
+  margin-right: 12px;
+  font-weight: 600;
+}
+
+/* CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
 }
 
 .card {
-    background: #1e293b;
-    padding: 30px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    transition: 0.3s ease;
+  background: var(--card);
+  padding: 35px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  transition: 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
 
-h2 {
-    font-size: 2rem;
-    margin-bottom: 40px;
+.card h4 {
+  margin-bottom: 15px;
+  color: var(--accent);
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.card p {
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
+/* FOOTER */
 footer {
-    text-align: center;
-    padding: 30px;
-    background: #020617;
-    color: #94a3b8;
+  padding: 50px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  background: white;
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-    <h1>Automated <span class="highlight">Pothole & Road Surface</span> Condition Monitor</h1>
-    <p>
-        A classical computer vision-based system designed to detect road defects
-        using homography, texture analysis, and contour-based severity grading —
-        delivering scalable and cost-effective infrastructure monitoring.
-    </p>
+<nav>
+  <h1>CV · Road Monitor</h1>
+  <div>
+    <a href="#overview">Overview</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#methodology">Methodology</a>
+    <a href="#impact">Impact</a>
+  </div>
+</nav>
+
+<section class="hero" id="overview">
+  <h2>Automated <span>Pothole & Road Surface</span><br>Condition Monitor</h2>
+  <p>
+    A unified classical computer vision framework for scalable road defect detection.
+    Built without deep learning — optimized for low-cost municipal deployment.
+  </p>
+
+  <div class="stats">
+    <div class="stat-box">
+      <h3>3</h3>
+      <p>Defect Types</p>
+    </div>
+    <div class="stat-box">
+      <h3>6</h3>
+      <p>Pipeline Stages</p>
+    </div>
+    <div class="stat-box">
+      <h3>0</h3>
+      <p>GPU Required</p>
+    </div>
+  </div>
 </section>
 
-<section>
-    <h2>Problem Statement</h2>
+<section id="architecture">
+  <h3 class="section-title"><span>01</span>System Architecture</h3>
+  <div class="grid">
     <div class="card">
-        Road defects increase accident risks and cause billions in vehicle damage.
-        Manual inspection is slow and unsafe, while LiDAR systems are expensive.
-        We propose a scalable classical CV solution for automated monitoring.
+      <h4>Image Acquisition</h4>
+      <p>Vehicle-mounted RGB camera captures continuous road imagery.</p>
     </div>
-</section>
-
-<section>
-    <h2>System Pipeline</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>1. Image Acquisition</h3>
-            RGB camera mounted on vehicle captures continuous road imagery.
-        </div>
-        <div class="card">
-            <h3>2. Preprocessing</h3>
-            Grayscale conversion, noise reduction, illumination normalization.
-        </div>
-        <div class="card">
-            <h3>3. Geometric Correction</h3>
-            Homography transforms perspective view into bird’s-eye view.
-        </div>
-        <div class="card">
-            <h3>4. Texture Extraction</h3>
-            Local Binary Patterns isolate surface roughness.
-        </div>
-        <div class="card">
-            <h3>5. Segmentation</h3>
-            Morphological operations & contour detection localize defects.
-        </div>
-        <div class="card">
-            <h3>6. Severity Grading</h3>
-            Damage ratio computed and priority level assigned.
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2>Severity Classification</h2>
     <div class="card">
-        <strong>Minor:</strong> &lt; 5% damage ratio<br><br>
-        <strong>Moderate:</strong> 5–15% damage ratio<br><br>
-        <strong>Severe:</strong> &gt; 15% damage ratio
+      <h4>Preprocessing</h4>
+      <p>Grayscale conversion, filtering, illumination normalization.</p>
     </div>
+    <div class="card">
+      <h4>Homography</h4>
+      <p>Transforms perspective view into bird’s-eye view for accurate measurement.</p>
+    </div>
+  </div>
 </section>
 
-<section>
-    <h2>Technology Stack</h2>
-    <div class="grid">
-        <div class="card">Python</div>
-        <div class="card">OpenCV</div>
-        <div class="card">NumPy</div>
-        <div class="card">scikit-image</div>
-        <div class="card">Classical Machine Learning</div>
+<section id="methodology">
+  <h3 class="section-title"><span>02</span>Detection Methodology</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>Texture Extraction</h4>
+      <p>Local Binary Patterns isolate surface roughness from shadows.</p>
     </div>
+    <div class="card">
+      <h4>Segmentation</h4>
+      <p>Morphological operations refine defect regions.</p>
+    </div>
+    <div class="card">
+      <h4>Severity Grading</h4>
+      <p>Damage ratio computed to prioritize maintenance scheduling.</p>
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <h3 class="section-title"><span>03</span>Project Impact</h3>
+  <div class="card">
+    Enables scalable, low-cost infrastructure monitoring without LiDAR or deep learning hardware.
+    Designed for municipalities and smart city deployments.
+  </div>
 </section>
 
 <footer>
-    © 2026 | Automated Road Surface Condition Monitor | Built with Classical Computer Vision
-</footer>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Automated Road Surface Condition Monitor</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: #0f172a;
-    color: #f8fafc;
-    line-height: 1.6;
-}
-
-section {
-    padding: 80px 10%;
-}
-
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: #cbd5e1;
-    max-width: 700px;
-}
-
-.highlight {
-    color: #38bdf8;
-}
-
-.card {
-    background: #1e293b;
-    padding: 30px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    transition: 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 40px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #020617;
-    color: #94a3b8;
-}
-</style>
-</head>
-
-<body>
-
-<section class="hero">
-    <h1>Automated <span class="highlight">Pothole & Road Surface</span> Condition Monitor</h1>
-    <p>
-        A classical computer vision-based system designed to detect road defects
-        using homography, texture analysis, and contour-based severity grading —
-        delivering scalable and cost-effective infrastructure monitoring.
-    </p>
-</section>
-
-<section>
-    <h2>Problem Statement</h2>
-    <div class="card">
-        Road defects increase accident risks and cause billions in vehicle damage.
-        Manual inspection is slow and unsafe, while LiDAR systems are expensive.
-        We propose a scalable classical CV solution for automated monitoring.
-    </div>
-</section>
-
-<section>
-    <h2>System Pipeline</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>1. Image Acquisition</h3>
-            RGB camera mounted on vehicle captures continuous road imagery.
-        </div>
-        <div class="card">
-            <h3>2. Preprocessing</h3>
-            Grayscale conversion, noise reduction, illumination normalization.
-        </div>
-        <div class="card">
-            <h3>3. Geometric Correction</h3>
-            Homography transforms perspective view into bird’s-eye view.
-        </div>
-        <div class="card">
-            <h3>4. Texture Extraction</h3>
-            Local Binary Patterns isolate surface roughness.
-        </div>
-        <div class="card">
-            <h3>5. Segmentation</h3>
-            Morphological operations & contour detection localize defects.
-        </div>
-        <div class="card">
-            <h3>6. Severity Grading</h3>
-            Damage ratio computed and priority level assigned.
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2>Severity Classification</h2>
-    <div class="card">
-        <strong>Minor:</strong> &lt; 5% damage ratio<br><br>
-        <strong>Moderate:</strong> 5–15% damage ratio<br><br>
-        <strong>Severe:</strong> &gt; 15% damage ratio
-    </div>
-</section>
-
-<section>
-    <h2>Technology Stack</h2>
-    <div class="grid">
-        <div class="card">Python</div>
-        <div class="card">OpenCV</div>
-        <div class="card">NumPy</div>
-        <div class="card">scikit-image</div>
-        <div class="card">Classical Machine Learning</div>
-    </div>
-</section>
-
-<footer>
-    © 2026 | Automated Road Surface Condition Monitor | Built with Classical Computer Vision
+  © 2026 | Automated Road Surface Condition Monitor | Classical Computer Vision
 </footer>
 
 </body>
