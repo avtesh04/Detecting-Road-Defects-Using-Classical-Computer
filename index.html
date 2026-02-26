@@ -1,49 +1,315 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Automated Road Surface Condition Monitor</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            line-height: 1.6;
-        }
-        h1, h2 {
-            color: #2c3e50;
-        }
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 8px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automated Road Surface Condition Monitor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+    line-height: 1.6;
+}
+
+section {
+    padding: 80px 10%;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    max-width: 700px;
+}
+
+.highlight {
+    color: #38bdf8;
+}
+
+.card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #020617;
+    color: #94a3b8;
+}
+</style>
 </head>
+
 <body>
 
-<h1>Automated Pothole & Road Surface Condition Monitor</h1>
+<section class="hero">
+    <h1>Automated <span class="highlight">Pothole & Road Surface</span> Condition Monitor</h1>
+    <p>
+        A classical computer vision-based system designed to detect road defects
+        using homography, texture analysis, and contour-based severity grading —
+        delivering scalable and cost-effective infrastructure monitoring.
+    </p>
+</section>
 
-<h2>Project Overview</h2>
-<p>A classical computer vision system to detect road defects using RGB camera input.</p>
+<section>
+    <h2>Problem Statement</h2>
+    <div class="card">
+        Road defects increase accident risks and cause billions in vehicle damage.
+        Manual inspection is slow and unsafe, while LiDAR systems are expensive.
+        We propose a scalable classical CV solution for automated monitoring.
+    </div>
+</section>
 
-<h2>Pipeline</h2>
-<ol>
-<li>Image Acquisition</li>
-<li>Preprocessing</li>
-<li>Homography (Bird’s-Eye View)</li>
-<li>LBP Feature Extraction</li>
-<li>Segmentation & Contour Detection</li>
-<li>Severity Grading</li>
-</ol>
+<section>
+    <h2>System Pipeline</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>1. Image Acquisition</h3>
+            RGB camera mounted on vehicle captures continuous road imagery.
+        </div>
+        <div class="card">
+            <h3>2. Preprocessing</h3>
+            Grayscale conversion, noise reduction, illumination normalization.
+        </div>
+        <div class="card">
+            <h3>3. Geometric Correction</h3>
+            Homography transforms perspective view into bird’s-eye view.
+        </div>
+        <div class="card">
+            <h3>4. Texture Extraction</h3>
+            Local Binary Patterns isolate surface roughness.
+        </div>
+        <div class="card">
+            <h3>5. Segmentation</h3>
+            Morphological operations & contour detection localize defects.
+        </div>
+        <div class="card">
+            <h3>6. Severity Grading</h3>
+            Damage ratio computed and priority level assigned.
+        </div>
+    </div>
+</section>
 
-<h2>Severity Levels</h2>
-<table>
-<tr><th>Damage Ratio</th><th>Severity</th></tr>
-<tr><td>&lt; 5%</td><td>Minor</td></tr>
-<tr><td>5–15%</td><td>Moderate</td></tr>
-<tr><td>&gt; 15%</td><td>Severe</td></tr>
-</table>
+<section>
+    <h2>Severity Classification</h2>
+    <div class="card">
+        <strong>Minor:</strong> &lt; 5% damage ratio<br><br>
+        <strong>Moderate:</strong> 5–15% damage ratio<br><br>
+        <strong>Severe:</strong> &gt; 15% damage ratio
+    </div>
+</section>
 
-<p><strong>Tech Stack:</strong> Python, OpenCV, NumPy, scikit-image</p>
+<section>
+    <h2>Technology Stack</h2>
+    <div class="grid">
+        <div class="card">Python</div>
+        <div class="card">OpenCV</div>
+        <div class="card">NumPy</div>
+        <div class="card">scikit-image</div>
+        <div class="card">Classical Machine Learning</div>
+    </div>
+</section>
+
+<footer>
+    © 2026 | Automated Road Surface Condition Monitor | Built with Classical Computer Vision
+</footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automated Road Surface Condition Monitor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+    line-height: 1.6;
+}
+
+section {
+    padding: 80px 10%;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    max-width: 700px;
+}
+
+.highlight {
+    color: #38bdf8;
+}
+
+.card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #020617;
+    color: #94a3b8;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <h1>Automated <span class="highlight">Pothole & Road Surface</span> Condition Monitor</h1>
+    <p>
+        A classical computer vision-based system designed to detect road defects
+        using homography, texture analysis, and contour-based severity grading —
+        delivering scalable and cost-effective infrastructure monitoring.
+    </p>
+</section>
+
+<section>
+    <h2>Problem Statement</h2>
+    <div class="card">
+        Road defects increase accident risks and cause billions in vehicle damage.
+        Manual inspection is slow and unsafe, while LiDAR systems are expensive.
+        We propose a scalable classical CV solution for automated monitoring.
+    </div>
+</section>
+
+<section>
+    <h2>System Pipeline</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>1. Image Acquisition</h3>
+            RGB camera mounted on vehicle captures continuous road imagery.
+        </div>
+        <div class="card">
+            <h3>2. Preprocessing</h3>
+            Grayscale conversion, noise reduction, illumination normalization.
+        </div>
+        <div class="card">
+            <h3>3. Geometric Correction</h3>
+            Homography transforms perspective view into bird’s-eye view.
+        </div>
+        <div class="card">
+            <h3>4. Texture Extraction</h3>
+            Local Binary Patterns isolate surface roughness.
+        </div>
+        <div class="card">
+            <h3>5. Segmentation</h3>
+            Morphological operations & contour detection localize defects.
+        </div>
+        <div class="card">
+            <h3>6. Severity Grading</h3>
+            Damage ratio computed and priority level assigned.
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Severity Classification</h2>
+    <div class="card">
+        <strong>Minor:</strong> &lt; 5% damage ratio<br><br>
+        <strong>Moderate:</strong> 5–15% damage ratio<br><br>
+        <strong>Severe:</strong> &gt; 15% damage ratio
+    </div>
+</section>
+
+<section>
+    <h2>Technology Stack</h2>
+    <div class="grid">
+        <div class="card">Python</div>
+        <div class="card">OpenCV</div>
+        <div class="card">NumPy</div>
+        <div class="card">scikit-image</div>
+        <div class="card">Classical Machine Learning</div>
+    </div>
+</section>
+
+<footer>
+    © 2026 | Automated Road Surface Condition Monitor | Built with Classical Computer Vision
+</footer>
 
 </body>
 </html>
