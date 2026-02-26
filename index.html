@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Automated Road Surface Condition Monitor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Automated Pothole & Road Surface Condition Monitor</h1>
+
+<h2>Project Overview</h2>
+<p>A classical computer vision system to detect road defects using RGB camera input.</p>
+
+<h2>Pipeline</h2>
+<ol>
+<li>Image Acquisition</li>
+<li>Preprocessing</li>
+<li>Homography (Bird’s-Eye View)</li>
+<li>LBP Feature Extraction</li>
+<li>Segmentation & Contour Detection</li>
+<li>Severity Grading</li>
+</ol>
+
+<h2>Severity Levels</h2>
+<table>
+<tr><th>Damage Ratio</th><th>Severity</th></tr>
+<tr><td>&lt; 5%</td><td>Minor</td></tr>
+<tr><td>5–15%</td><td>Moderate</td></tr>
+<tr><td>&gt; 15%</td><td>Severe</td></tr>
+</table>
+
+<p><strong>Tech Stack:</strong> Python, OpenCV, NumPy, scikit-image</p>
+
+</body>
+</html>
